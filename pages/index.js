@@ -1,65 +1,137 @@
-import Head from 'next/head'
+import Head from "next/head";
 
 export default function Home() {
   return (
     <div className="container">
       <Head>
-        <title>Create Next App</title>
+        <title>David Musijenko | Web Dev</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
       <main>
-        <h1 className="title">
-          Welcome to <a href="https://nextjs.org">Next.js!</a>
-        </h1>
+        <h1 className="title">David Musijenko</h1>
+
+        <h2>webové stránky na míru</h2>
 
         <p className="description">
-          Get started by editing <code>pages/index.js</code>
+          Chcete <strong>vlastní stránky</strong>? Ať už máte blog, podnikáte,
+          či chcete prodávat věci přes e-shop, najdeme pro vás to{" "}
+          <strong>ideální řešení</strong>.
         </p>
 
-        <div className="grid">
-          <a href="https://nextjs.org/docs" className="card">
-            <h3>Documentation &rarr;</h3>
-            <p>Find in-depth information about Next.js features and API.</p>
-          </a>
+        <form action="" method="post">
+          <div className="form">
+            <h3>
+              Kontaktujte mě na{" "}
+              <u>
+                <a href="mailto:david.musijenko@gmail.com">
+                  david.musijenko@gmail.com
+                </a>
+              </u>{" "}
+              nebo využijte tento formulář.
+            </h3>
 
-          <a href="https://nextjs.org/learn" className="card">
-            <h3>Learn &rarr;</h3>
-            <p>Learn about Next.js in an interactive course with quizzes!</p>
-          </a>
-
-          <a
-            href="https://github.com/vercel/next.js/tree/master/examples"
-            className="card"
-          >
-            <h3>Examples &rarr;</h3>
-            <p>Discover and deploy boilerplate example Next.js projects.</p>
-          </a>
-
-          <a
-            href="https://vercel.com/import?filter=next.js&utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className="card"
-          >
-            <h3>Deploy &rarr;</h3>
-            <p>
-              Instantly deploy your Next.js site to a public URL with Vercel.
-            </p>
-          </a>
-        </div>
+            <div className="fields">
+              <div className="row">
+                <div className="column">
+                  <input
+                    type="text"
+                    name="name"
+                    placeholder="Vaše jméno"
+                    required=""
+                  />
+                </div>
+                <div className="column">
+                  <input
+                    type="email"
+                    name="email"
+                    placeholder="E-mail"
+                    required=""
+                  />
+                </div>
+                <div className="column">
+                  <input type="tel" name="phone" placeholder="Telefon" />
+                </div>
+              </div>
+              <div className="row">
+                <textarea name="message" placeholder="Vaše zpráva"></textarea>
+              </div>
+              <button type="submit" className="send-button">
+                <span>Odeslat zprávu</span>
+              </button>
+              <input type="hidden" name="sent" value="1665927259660" />
+            </div>
+          </div>
+          <div className="sent">
+            <h3>
+              <strong>Odesláno</strong>, <br /> brzy se vám ozvu zpět.
+            </h3>
+          </div>
+        </form>
       </main>
 
       <footer>
         <a
-          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
+          href="https://www.linkedin.com/in/david-musijenko/"
           target="_blank"
           rel="noopener noreferrer"
         >
-          Powered by{' '}
-          <img src="/vercel.svg" alt="Vercel" className="logo" />
+          Powered by <b> One Man Army </b>
+          <img src="/Pic.jpg" alt="Avatar" className="logo" />
         </a>
       </footer>
 
       <style jsx>{`
+        @media (min-width: 400px) {
+          .container {
+            width: 85%;
+            padding: 0;
+          }
+          .description {
+            font-size: 1.5rem;
+          }
+          .column {
+            width: 100%;
+          }
+          input {
+            width: 100%;
+          }
+          .send-button {
+            width: 100%;
+          }
+          .sent {
+            margin-top: 120px;
+            margin-left: 10px;
+          }
+        }
+
+        @media (min-width: 800px) {
+          .container {
+            width: 75%;
+          }
+          .description {
+            font-size: 2rem;
+          }
+          .column {
+            margin: 0 0px 0 0;
+            display: flex;
+            padding: 0 3px 0 3px;
+          }
+          .row {
+            width: 100%;
+            display: flex;
+          }
+
+          .send-button {
+            width: 250px;
+            margin-left: 00px;
+          }
+          .sent {
+            margin-top: 30px;
+            margin-left: 22px;
+          }
+        }
+
         .container {
           min-height: 100vh;
           padding: 0 0.5rem;
@@ -67,6 +139,8 @@ export default function Home() {
           flex-direction: column;
           justify-content: center;
           align-items: center;
+          padding: 0 20px;
+          margin: 0 auto;
         }
 
         main {
@@ -75,7 +149,6 @@ export default function Home() {
           display: flex;
           flex-direction: column;
           justify-content: center;
-          align-items: center;
         }
 
         footer {
@@ -102,6 +175,16 @@ export default function Home() {
           text-decoration: none;
         }
 
+        h2 {
+          font-size: 1.75rem;
+          line-height: 1.25;
+          letter-spacing: -0.05rem;
+          margin-top: 0px;
+          margin-left: 2px;
+          margin-bottom: 2rem;
+          font-weight: 300;
+        }
+
         .title a {
           color: #0070f3;
           text-decoration: none;
@@ -116,17 +199,12 @@ export default function Home() {
         .title {
           margin: 0;
           line-height: 1.15;
-          font-size: 4rem;
-        }
-
-        .title,
-        .description {
-          text-align: center;
+          font-size: 2.3rem;
+          letter-spacing: -0.1rem;
         }
 
         .description {
           line-height: 1.5;
-          font-size: 1.5rem;
         }
 
         code {
@@ -178,15 +256,72 @@ export default function Home() {
           line-height: 1.5;
         }
 
-        .logo {
-          height: 1em;
+        p {
+          display: block;
+          margin-block-start: 1em;
+          margin-block-end: 1em;
+          margin-inline-start: 0px;
+          margin-inline-end: 0px;
+          text-align: justify;
         }
 
-        @media (max-width: 600px) {
-          .grid {
-            width: 100%;
-            flex-direction: column;
-          }
+        form {
+          color: #7b3fa1;
+
+          width: 100%;
+          max-width: 700px;
+          margin: 20px 0 40px;
+          padding: 20px 30px;
+          background: #fcf2fc;
+          box-sizing: border-box;
+          border-radius: 20px;
+        }
+
+        textarea {
+          margin-top: 40px;
+          height: 150px;
+          resize: vertical;
+          width: 100%;
+          border: none;
+          height: 100px;
+          padding: 12px 15px;
+        }
+
+        .column {
+          margin-top: 10px;
+
+          border: none;
+          float: left;
+
+          box-sizing: border-box;
+          height: 40px;
+          padding: auto;
+        }
+
+        input {
+          border: none;
+          height: 50px;
+          padding: 12px 15px;
+        }
+
+        .send-button {
+          font: inherit;
+          overflow: visible;
+          text-transform: none;
+          color: #fff;
+          float: right;
+          margin: 25px 0 20px;
+          padding: 15px 30px;
+          font-size: 1.4rem;
+          background: #2ecc71;
+          border: none;
+          transition: width 300ms;
+          text-decoration: none;
+        }
+
+        .logo {
+          height: 2.5em;
+          border-radius: 25px;
         }
       `}</style>
 
@@ -205,5 +340,5 @@ export default function Home() {
         }
       `}</style>
     </div>
-  )
+  );
 }
