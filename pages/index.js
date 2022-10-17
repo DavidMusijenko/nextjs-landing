@@ -1,7 +1,7 @@
 import Head from "next/head";
 import { useState } from "react";
 import Image from "next/image";
-import { SendEmail } from "./API";
+import { SendEmail } from "../API";
 
 export default function Home() {
   const [hidden, setHidden] = useState(true);
