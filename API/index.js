@@ -9,7 +9,10 @@ export const SendEmail = async ({
 }) => {
   try {
     const datas = { fullName, email, phone, message };
-    let res = await axios.post(`http://localhost:5000/send`, datas);
+    let res = await axios.post(
+      `https://nextjs-landing-server.vercel.app/:5000/send`,
+      datas
+    );
     if (res) {
       setSend(res);
     }
