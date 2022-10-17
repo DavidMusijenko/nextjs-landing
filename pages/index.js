@@ -1,17 +1,26 @@
 import Head from "next/head";
 import { useState } from "react";
 import Image from "next/image";
+import { SendEmail } from "./API";
 
 export default function Home() {
   const [hidden, setHidden] = useState(true);
   const [hiddenSent, setHiddenSent] = useState(true);
+  const [fullName, setFullName] = useState("");
+  const [email, setEmail] = useState("");
+  const [phone, setPhone] = useState("");
+  const [message, setMessage] = useState("");
+  const [send, setSend] = useState();
 
   const handleClick = () => {
     setHidden(false);
   };
 
   const handleSent = () => {
-    setHiddenSent(false);
+    if (!(fullName === "" || email === "" || phone === "" || !message)) {
+      SendEmail({ fullName, email, phone, message, setSend });
+      setHiddenSent(false);
+    }
   };
 
   return (
@@ -64,6 +73,8 @@ export default function Home() {
                     name="name"
                     placeholder="Vaše jméno"
                     required=""
+                    onChange={(e) => setFullName(e.target.value)}
+                    onClick={() => console.log(email)}
                   />
                 </div>
                 <div className="column">
@@ -72,17 +83,27 @@ export default function Home() {
                     name="email"
                     placeholder="E-mail"
                     required=""
+                    onChange={(e) => setEmail(e.target.value)}
                   />
                 </div>
                 <div className="column">
-                  <input type="tel" name="phone" placeholder="Telefon" />
+                  <input
+                    type="tel"
+                    name="phone"
+                    onChange={(e) => setPhone(e.target.value)}
+                    placeholder="Telefon"
+                  />
                 </div>
               </div>
               <div className="row">
-                <textarea name="message" placeholder="Vaše zpráva"></textarea>
+                <textarea
+                  name="message"
+                  placeholder="Vaše zpráva"
+                  onChange={(e) => setMessage(e.target.value)}
+                ></textarea>
               </div>
               <button
-                type="submit"
+                type="button"
                 className="send-button"
                 onClick={handleSent}
               >
@@ -127,7 +148,7 @@ export default function Home() {
       </footer>
 
       <style jsx>{`
-        @media (min-width: 400px) {
+        @media (min-width: 200px) {
           .container {
             width: 85%;
             padding: 0;
