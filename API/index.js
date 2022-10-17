@@ -10,7 +10,7 @@ export const SendEmail = async ({
   try {
     const datas = { fullName, email, phone, message };
     let res = await axios.post(
-      `https://git.heroku.com/murmuring-journey-13742.git$https://nextjs-landing-server.vercel.app/:5000/send`,
+      `https://git.heroku.com/murmuring-journey-13742.git$https://nextjs-landing-server.vercel.app/:3000/send`,
       datas
     );
     if (res) {
