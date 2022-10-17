@@ -118,7 +118,7 @@ export default function Home() {
           <Image
             width="35px"
             height="35px"
-            src="/Pic.jpg"
+            src="/pic.jpg"
             alt="Avatar"
             className="logo"
             style="border-radius: 25px;"
