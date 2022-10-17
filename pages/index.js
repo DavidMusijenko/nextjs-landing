@@ -1,6 +1,18 @@
 import Head from "next/head";
+import { useState } from "react";
 
 export default function Home() {
+  const [hidden, setHidden] = useState(true);
+  const [hiddenSent, setHiddenSent] = useState(true);
+
+  const handleClick = () => {
+    setHidden(false);
+  };
+
+  const handleSent = () => {
+    setHiddenSent(false);
+  };
+
   return (
     <div className="container">
       <Head>
@@ -11,7 +23,7 @@ export default function Home() {
       <main>
         <h1 className="title">David Musijenko</h1>
 
-        <h2>webové stránky na míru</h2>
+        <h2>webové stránky pro každého</h2>
 
         <p className="description">
           Chcete <strong>vlastní stránky</strong>? Ať už máte blog, podnikáte,
@@ -19,8 +31,20 @@ export default function Home() {
           <strong>ideální řešení</strong>.
         </p>
 
-        <form action="" method="post">
-          <div className="form">
+        <button
+          type="button"
+          className={hidden ? "reveal-button" : "hidden"}
+          onClick={handleClick}
+        >
+          <span>Jdem na to!</span>
+        </button>
+
+        <form
+          action=""
+          method="post"
+          className={hidden === true ? "hidden" : "form"}
+        >
+          <div>
             <h3>
               Kontaktujte mě na{" "}
               <u>
@@ -56,13 +80,16 @@ export default function Home() {
               <div className="row">
                 <textarea name="message" placeholder="Vaše zpráva"></textarea>
               </div>
-              <button type="submit" className="send-button">
+              <button
+                type="submit"
+                className="send-button"
+                onClick={handleSent}
+              >
                 <span>Odeslat zprávu</span>
               </button>
-              <input type="hidden" name="sent" value="1665927259660" />
             </div>
           </div>
-          <div className="sent">
+          <div className={hiddenSent === true ? "hidden" : "sent"}>
             <h3>
               <strong>Odesláno</strong>, <br /> brzy se vám ozvu zpět.
             </h3>
@@ -277,6 +304,10 @@ export default function Home() {
           border-radius: 20px;
         }
 
+        .hidden {
+          display: none;
+        }
+
         textarea {
           margin-top: 40px;
           height: 150px;
@@ -307,7 +338,7 @@ export default function Home() {
         .send-button {
           font: inherit;
           overflow: visible;
-          text-transform: none;
+
           color: #fff;
           float: right;
           margin: 25px 0 20px;
@@ -317,6 +348,23 @@ export default function Home() {
           border: none;
           transition: width 300ms;
           text-decoration: none;
+        }
+
+        .reveal-button {
+          font: inherit;
+          float: right;
+          overflow: visible;
+          position: relative;
+
+          color: #fff;
+          margin: 20px 0 20px 0px;
+          padding: 15px 30px;
+          font-size: 1.4rem;
+          background: #2ecc71;
+          border: none;
+          transition: width 300ms;
+          text-decoration: none;
+          width: 250px;
         }
 
         .logo {
