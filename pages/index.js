@@ -104,7 +104,7 @@ export default function Home() {
           rel="noopener noreferrer"
         >
           Powered by <b> One Man Army </b>
-          <img src="/Pic.jpg" alt="Avatar" className="logo" />
+          <Image src="/Pic.jpg" alt="Avatar" className="logo" />
         </a>
       </footer>
 
