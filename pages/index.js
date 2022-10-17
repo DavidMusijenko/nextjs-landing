@@ -105,8 +105,25 @@ export default function Home() {
           rel="noopener noreferrer"
         >
           Powered by <b> One Man Army </b>
-          <Image src="/Pic.jpg" alt="Avatar" className="logo" />
         </a>
+        <div
+          style={{
+            borderRadius: "50%",
+            overflow: "hidden",
+            marginLeft: "10px",
+            marginBottom: "10px",
+            height: "35px",
+          }}
+        >
+          <Image
+            width="35px"
+            height="35px"
+            src="/Pic.jpg"
+            alt="Avatar"
+            className="logo"
+            style="border-radius: 25px;"
+          />
+        </div>
       </footer>
 
       <style jsx>{`
